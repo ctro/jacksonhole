@@ -1,17 +1,3 @@
-// Copyright 2016, Google, Inc.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//   http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 // [START app]
 'use strict';
 
@@ -32,9 +18,12 @@ app.post('/', function (request, response) {
   // SSML Ref: https://developers.google.com/actions/reference/ssml
   function mainIntent (assistant) {
     console.log('mainIntent');
-    let inputPrompt = assistant.buildInputPrompt(true, '<speak>Jackson here,<break time="1"/> ' +
-          'You can say mountain weather forecast</speak>',
-          ["Sorry, I didn't hear you", "Are you still there?", "Later, I'm going skiing"]);
+    let inputPrompt = assistant.buildInputPrompt(true,
+      '<speak>Jackson here,<break time="1"/>You can say ' +
+      'mountain weather forecast,<break time="1"/>' +
+      'at what elevation do deer turn into elk<break time="1"/>' +
+      '</speak>',
+          ['Sorry, I didn\'t hear you', 'Are you still there?'', 'Later, I\'m going skiing']);
     assistant.ask(inputPrompt);
   }
 
@@ -42,14 +31,17 @@ app.post('/', function (request, response) {
 
   function rawInput (assistant) {
     console.log('rawInput');
-    if (assistant.getRawInput() === 'bye') {
+    if (assistant.getRawInput() === 'goodbye') {
       assistant.tell('<speak>Peace out river trout</speak>');
+    }
+    else if (assistant.getRawInput() === 'at what elevation do deer turn into elk') {
+      assistant.tell('<speak>Typically around 8000 feet, but as low as 6000 feet in areas where the doe-zone layer has been depleted</speak>');
     }
     else if (assistant.getRawInput() === 'mountain weather forecast') {
       assistant.tell('<speak><audio src="https://goo.gl/nGE42R">MountainWeather Forecast</audio></speak>');
     } else {
       let inputPrompt = assistant.buildInputPrompt(true, '<speak>You said ' + assistant.getRawInput() + '</speak>',
-          ["I didn't catch that", "Uhhhhhhhhh", "Come again"]);
+          ['I didn\'t catch that', 'Uhhhhhhhhh', 'Come again']);
       assistant.ask(inputPrompt);
     }
   }
