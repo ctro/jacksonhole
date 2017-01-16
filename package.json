@@ -1,19 +1,19 @@
 {
-  "name": "hello-action",
-  "description": "Actions SDK sample for Google App Engine",
+  "name": "jackson-locals-action",
+  "description": "Actions for Jackson Locals",
   "version": "0.0.1",
   "private": true,
   "license": "Apache-2.0",
-  "author": "Google Inc.",
+  "author": "ctro",
   "engines": {
     "node": "~4.2"
   },
   "scripts": {
-    "lint": "semistandard --fix \"**/*.js\"",
+    "lint": "semistandard \"**/*.js\"",
     "start": "node app.js",
     "monitor": "nodemon app.js",
     "deploy": "gcloud app deploy",
-    "test": "npm run lint"
+    "test": "npm run lint; mocha"
   },
   "semistandard": {
     "globals": [
@@ -31,6 +31,8 @@
     "actions-on-google": "^1.0.0"
   },
   "devDependencies": {
-    "semistandard": "^9.1.0"
+    "semistandard": "^9.1.0",
+    "mocha": "^3.2.0",
+    "chai": "^3.5.0"
   }
 }

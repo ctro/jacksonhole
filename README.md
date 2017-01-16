@@ -29,6 +29,13 @@ gactions simulate
 gcloud app logs read -s default
 ```
 
+### Tests
+Runs [semistandard](https://github.com/Flet/semistandard) lint & some Mocha specs.
+```
+npm install
+npm test
+```
+
 ## TODO
 
 - [ ] Road Conditions
