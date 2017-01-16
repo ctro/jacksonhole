@@ -9,7 +9,7 @@
     "node": "~4.2"
   },
   "scripts": {
-    "lint": "semistandard \"**/*.js\"",
+    "lint": "semistandard --fix \"**/*.js\"",
     "start": "node app.js",
     "monitor": "nodemon app.js",
     "deploy": "gcloud app deploy",

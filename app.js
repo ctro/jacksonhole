@@ -1,17 +1,30 @@
 // [START app]
 'use strict';
 
+// Speech Synthesis Markup Language
+// SSML Ref: https://developers.google.com/actions/reference/ssml
+
+// Jim updates his forecast most mornings here:
+// http://www.mountainweather.com/forecast/forecast.mp3
+
+// I think audio source has to be https. 2 examples below
+// 1. https google url shortener to above url
+// 2. upload of one forecast mp3 to google equiv of S3
+
+// Weirdly, only the elk joke works.
+
+// Clint put these up here , so maybe I could try testing them
 let greeting = '<speak>Jackson here,<break time="1"/>You can say ' +
   'mountain weather forecast,<break time="1"/>' +
   'mountain weather forecast two,<break time="1"/>' +
-  'at what elevation do deer turn into elk<break time="1"/>' +
+  'elk joke' +
   '</speak>';
 
 function respond (command) {
   if (command === 'later') {
     return ('Peace out river trout');
-  } else if (command === 'at what elevation do deer turn into elk') {
-    return ('Typically around 8000 feet, but as low as 6000 feet in areas where the doe-zone layer has been depleted');
+  } else if (command === 'elk joke') {
+    return ('At what elevation do deer turn into elk?<break time="1"/>Typically around 8000 feet, but as low as 6000 feet in areas where the doe-zone layer has been depleted');
   } else if (command === 'mountain weather forecast') {
     return ('<speak><audio src="https://goo.gl/nGE42R">MountainWeather Forecast</audio></speak>');
   } else if (command === 'mountain weather forecast two') {
@@ -40,14 +53,11 @@ app.post('/', function (request, response) {
     response: response
   });
 
-  // SSML Ref: https://developers.google.com/actions/reference/ssml
   function mainIntent (assistant) {
     console.log('mainIntent');
     let inputPrompt = assistant.buildInputPrompt(true, greeting, ['Sorry, I didn\'t hear you', 'Are you still there?', 'Later, I\'m going skiing']);
     assistant.ask(inputPrompt);
   }
-
-  // http://www.mountainweather.com/forecast/forecast.mp3
 
   function rawInput (assistant) {
     console.log('rawInput');
