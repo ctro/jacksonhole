@@ -1,7 +1,10 @@
 # Jackson Locals Google Actions
 
 ## Google API Registration
+Dashboard:
 https://console.developers.google.com/projectselector/apis/api/actions.googleapis.com/overview
+
+Review Status: https://console.developers.google.com/apis/api/actions.googleapis.com/deployments?project=wired-victor-155621&organizationId=271313418688
 
 ## Development
 
@@ -11,9 +14,14 @@ gcloud auth login
 gcloud config set project wired-victor-155621
 ```
 
-### Deploy
+### Deploy the app
 ```
 gcloud app deploy
+```
+
+### Deploy the API, which is different?
+```
+gactions deploy --action_package action.json --project wired-victor-155621
 ```
 
 ### Preview
