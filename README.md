@@ -1,5 +1,8 @@
 # Jackson Locals Google Actions
 
+## Google API Registration
+https://console.developers.google.com/projectselector/apis/api/actions.googleapis.com/overview
+
 ## Development
 
 ### Setup
