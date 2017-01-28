@@ -1,9 +1,5 @@
 # Jackson Locals Google Actions
 
-## You can ask
-
-- What's Woody's forecast?
-
 ## Development
 
 ### Setup
@@ -23,6 +19,8 @@ gactions preview -action_package=action.json -invocation_name="jackson locals"
 gactions simulate
 # apple-click on the link, or type `talk to jackson locals`
 ```
+
+**Note:** You need to say "talk to jackson locals" before every query.
 
 ### Logs
 ```
