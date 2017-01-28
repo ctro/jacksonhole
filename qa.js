@@ -20,13 +20,4 @@ module.exports = function QA () {
   // max 3: https://developers.google.com/actions/reference/ActionsSdkAssistant#buildInputPrompt
   this.no_inputs = ['Come again', 'Are you still there?', 'Later, I\'m going skiing'];
 
-  // Look up command in QA
-  // function respond (command) {
-  //   for (key in qa) {
-  //     if (key === command) {
-  //       return qa[key];
-  //     }
-  //   }
-  //   return false // if no match
-  // }
 };
