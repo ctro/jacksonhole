@@ -20,6 +20,8 @@ gcloud app deploy
 ```
 
 ### Deploy the API, which is different?
+This increments the version of the deployed Action and sets it to Review.
+Use Preview below for dev.
 ```
 gactions deploy --action_package action.json --project wired-victor-155621
 ```
@@ -51,7 +53,7 @@ npm test
 Don't be surprised: `semistandard --fix` changes things for you.
 ## TODO
 - [x] Simple text answer
-- [ ] Woody's forecast
+- [x] Woody's forecast
 - [ ] Road Conditions ?
 - [ ] Avy Conditions ?
-- [ ] I wonder if BlueText is interested in this stuff?  Food Deals?  "Lunch Special Right Now"?b
+- [ ] I wonder if BlueText is interested in this stuff?  Food Deals?  "Lunch Special Right Now"?

@@ -7,10 +7,6 @@
 // Jim updates his forecast most mornings here:
 // http://www.mountainweather.com/forecast/forecast.mp3
 
-// I think audio source has to be https. Neither of the following seem to work :(
-// 1. https google url shortener to above url
-// 2. upload of one forecast mp3 to google equiv of S3
-
 var QA = require('./qa');
 
 process.env.DEBUG = 'actions-on-google:*';
@@ -47,10 +43,13 @@ app.post('/', function (request, response) {
     var command = assistant.getRawInput();
     var response = qa.map[command];
 
-    if (response) {
-      assistant.tell(response);
+    if (command === 'help') {
+      let helpPrompt = assistant.buildInputPrompt(true, response, qa.no_inputs);
+      assistant.ask(helpPrompt);
+    } else if (response) {
+      assistant.tell(response); // close the mic
     } else {
-      let inputPrompt = assistant.buildInputPrompt(true, '<speak>You said ' + assistant.getRawInput() + '</speak>', qa.no_inputs);
+      let inputPrompt = assistant.buildInputPrompt(true, '<speak>I don\'t understand ' + assistant.getRawInput() + ', try again</speak>', qa.no_inputs);
       assistant.ask(inputPrompt);
     }
   }
