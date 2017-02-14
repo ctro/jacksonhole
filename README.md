@@ -8,6 +8,9 @@ Review Status: https://console.developers.google.com/apis/api/actions.googleapis
 
 ## Development
 
+[Install the client](https://cloud.google.com/sdk/)
+[Install the gactions cli](https://developers.google.com/actions/tools/gactions-cli)
+
 ### Setup
 ```
 gcloud auth login
