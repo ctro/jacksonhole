@@ -11,6 +11,13 @@ Review Status: https://console.developers.google.com/apis/api/actions.googleapis
 [Install the client](https://cloud.google.com/sdk/)
 [Install the gactions cli](https://developers.google.com/actions/tools/gactions-cli)
 
+## NodeJS
+
+Ubuntu instructions:
+```sh
+sudo apt-get install nodejs npm nodejs-legacy
+```
+
 ### Setup
 ```
 gcloud auth login
@@ -49,6 +56,7 @@ gcloud app logs read -s default
 
 Run tests
 ```
+npm install semistandard
 npm install
 npm test
 ```
