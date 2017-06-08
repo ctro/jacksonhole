@@ -6,6 +6,9 @@ https://console.developers.google.com/projectselector/apis/api/actions.googleapi
 
 Review Status: https://console.developers.google.com/apis/api/actions.googleapis.com/deployments?project=wired-victor-155621&organizationId=271313418688
 
+**Note**: There is a charge per-deploy.
+**Note**: This setup costs ~$85/mo.  I've currently disabled it at this page: https://console.cloud.google.com/appengine/settings?project=wired-victor-155621&serviceId=default
+
 ## Development
 
 [Install the client](https://cloud.google.com/sdk/)
