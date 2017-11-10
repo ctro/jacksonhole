@@ -1,0 +1,38 @@
+{
+  "name": "jackson-locals-action",
+  "description": "Actions for Jackson Locals",
+  "version": "0.0.2",
+  "private": true,
+  "license": "Apache-2.0",
+  "author": "ctro",
+  "engines": {
+    "node": ">=6.11.1"
+  },
+  "scripts": {
+    "lint": "semistandard --fix \"**/*.js\"",
+    "test": "npm run lint; mocha",
+    "start": "firebase serve --only functions",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "semistandard": {
+    "globals": [
+      "after",
+      "afterEach",
+      "before",
+      "beforeEach",
+      "describe",
+      "it"
+    ]
+  },
+  "dependencies": {
+    "actions-on-google": "^1.5.0",
+    "firebase-functions": "^0.5.7",
+    "firebase-admin": "^4.2.1"
+  },
+  "devDependencies": {
+    "semistandard": "^9.1.0",
+    "mocha": "^3.2.0",
+    "chai": "^3.5.0"
+  }
+}

@@ -1,13 +1,18 @@
 # Jackson Locals Google Actions
 
-## Google API Registration
-Dashboard:
-https://console.developers.google.com/projectselector/apis/api/actions.googleapis.com/overview
+## Google Cloud Functions and Firebase
 
+Walkthrough: https://developers.google.com/actions/tools/fulfillment-hosting
+Actions dashboard: https://console.actions.google.com/project/wired-victor-155621/analytics/usage
+Firebase functions: https://console.firebase.google.com/project/wired-victor-155621/functions/list
+
+## Google API Registration
 Review Status: https://console.developers.google.com/apis/api/actions.googleapis.com/deployments?project=wired-victor-155621&organizationId=271313418688
 
-**Note**: There is a charge per-deploy.
+## Legacy: Google AppEngine
+**Note**: There is a charge per-deploy with app-engine
 **Note**: This setup costs ~$85/mo.  I've currently disabled it at this page: https://console.cloud.google.com/appengine/settings?project=wired-victor-155621&serviceId=default
+
 
 ## Development
 
@@ -27,19 +32,19 @@ gcloud auth login
 gcloud config set project wired-victor-155621
 ```
 
-### Deploy the app
+### Test/stage the API
 ```
-gcloud app deploy
+gactions test --action_package action.json --project wired-victor-155621
 ```
 
-### Deploy the API, which is different?
+### Deploy the API
 This increments the version of the deployed Action and sets it to Review.
 Use Preview below for dev.
 ```
 gactions deploy --action_package action.json --project wired-victor-155621
 ```
 
-### Preview
+### Local preview
 ```
 gactions preview -action_package=action.json -invocation_name="jackson locals"
 gactions simulate
@@ -48,10 +53,6 @@ gactions simulate
 
 **Note:** You need to say "talk to jackson locals" before every query.
 
-### Logs
-```
-gcloud app logs read -s default
-```
 
 ### Tests
 - [semistandard lint](https://github.com/Flet/semistandard)
@@ -65,6 +66,7 @@ npm test
 ```
 
 Don't be surprised: `semistandard --fix` changes things for you.
+
 ## TODO
 - [x] Simple text answer
 - [x] Woody's forecast
