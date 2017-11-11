@@ -1,10 +1,19 @@
 # Jackson Locals Google Actions
 
-## Google Cloud Functions and Firebase
+# Text responses and DialogFlow
+
+After investigating DF and deploying cloud functions it became clear that text responses, including [SSML](https://developers.google.com/actions/reference/ssml), are easily accomplished by using just DF, and **no custom code**. :/
+
+## Google Cloud Functions and Firebase and DialogFlow
 
 Walkthrough: https://developers.google.com/actions/tools/fulfillment-hosting
+Functions dashboard: https://console.cloud.google.com/functions/list?project=wired-victor-155621
 Actions dashboard: https://console.actions.google.com/project/wired-victor-155621/analytics/usage
 Firebase functions: https://console.firebase.google.com/project/wired-victor-155621/functions/list
+DialogFlow : https://console.dialogflow.com/api-client/#/agent/584100be-4bdf-48cf-b66a-940dec683bae/fulfillment
+
+
+Example project: https://github.com/actions-on-google/dialogflow-facts-about-google-nodejs
 
 ## Google API Registration
 Review Status: https://console.developers.google.com/apis/api/actions.googleapis.com/deployments?project=wired-victor-155621&organizationId=271313418688
